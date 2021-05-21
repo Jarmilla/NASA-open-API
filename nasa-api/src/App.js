@@ -4,6 +4,8 @@ import "./App.css";
 
 function App() {
   const key = "eScw6dlpwJ2AIBuldX1hVZD5Bl1TcnLm9GfqgRwx";
+  const [apodData, setApodData] = useState({});
+  const [inputDate, setInputDate] = useState("");
 
   useEffect(() => {
     fetch(`https://api.nasa.gov/planetary/apod?api_key=${key}&date=${inputDate}`)
@@ -13,10 +15,8 @@ function App() {
         setApodData(data);
       })
       .catch((err) => console.log("Error: ", err));
-  }, []);
+  }, [inputDate]);
 
-  const [apodData, setApodData] = useState({});
-  const [inputDate, setInputDate] = useState();
   return (
     <div className="App">
       <h2>Nasa</h2>
