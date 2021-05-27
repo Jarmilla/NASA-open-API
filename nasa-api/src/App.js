@@ -19,7 +19,7 @@ function App() {
 
   return (
     <div className="App">
-      <h2>Nasa</h2>
+      <h1>Astronomy Picture of the Day</h1>
       <input type="date" onChange={(e) => setInputDate(e.target.value)} />
       <AstronomyPictureOfTheDay apodData={apodData} />
     </div>

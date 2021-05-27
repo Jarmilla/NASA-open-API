@@ -1,3 +1,72 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&family=Space+Mono:wght@400;700&display=swap");
+
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-color: black;
+  color: aliceblue;
+}
+
 .App {
   text-align: center;
+  border: 0.2rem solid white;
+  margin: 5%;
+}
+
+.App h1 {
+  font-family: "Space Mono", monospace;
+  font-size: 2.5rem;
+  margin: 3rem 0;
+}
+
+.App input {
+  padding: 0.5rem;
+  border: 0.2rem solid white;
+  border-radius: 5px;
+}
+
+.astronomy h2 {
+  font-family: "Space Mono", monospace;
+}
+
+.astronomy article {
+  font-family: "Montserrat", sans-serif;
+  line-height: 1.5;
+  letter-spacing: 0.05rem;
+  text-align: justify;
+  padding: 3% 10% 5%;
+}
+
+.astronomy article::first-letter {
+  font-size: 250%;
+  font-weight: 800;
+  line-height: 1;
+  color: yellow;
+}
+
+iframe {
+  width: 40rem;
+  height: 30rem;
+  border: 0.2rem solid white;
+  border-radius: 5px;
+  margin: 2rem 0 1rem;
+}
+
+.image-container {
+  display: inline-block;
+  position: relative;
+  width: 40rem;
+  height: 40rem;
+  clip-path: ellipse(50% 45% at 50% 50%);
+  background-color: white;
+}
+
+.image-container img {
+  position: absolute;
+  top: 0.2rem; /* equal to border thickness */
+  left: 0.2rem;
+  width: 39.6rem; /* container height - (border thickness * 2) */
+  height: 39.6rem;
+  clip-path: ellipse(50% 45% at 50% 50%);
 }
