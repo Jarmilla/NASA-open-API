@@ -6,6 +6,7 @@ body {
   box-sizing: border-box;
   background-color: black;
   color: aliceblue;
+  font-family: "Montserrat", sans-serif;
 }
 
 .App {
@@ -34,7 +35,6 @@ body {
 }
 
 .astronomy article {
-  font-family: "Montserrat", sans-serif;
   line-height: 1.5;
   letter-spacing: 0.05rem;
   text-align: justify;
@@ -104,7 +104,8 @@ iframe {
     font-size: 1.2rem;
   }
 
-  .astronomy article {
+  .astronomy article,
+  p {
     font-size: 0.9rem;
   }
 

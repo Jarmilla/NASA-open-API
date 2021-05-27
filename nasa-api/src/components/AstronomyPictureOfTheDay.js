@@ -12,6 +12,8 @@ function AstronomyPictureOfTheDay({ apodData }) {
       )}
 
       <h2>{apodData.title}</h2>
+      {apodData?.copyright ? <p>Photo by: {apodData.copyright}</p> : ""}
+
       <article>{apodData.explanation}</article>
     </div>
   );
