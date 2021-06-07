@@ -7,7 +7,7 @@ function App() {
   const key = "eScw6dlpwJ2AIBuldX1hVZD5Bl1TcnLm9GfqgRwx";
   const [inputDate, setInputDate] = useState(new Date().toISOString().slice(0, 10));
   const [weekBeforeInputDate, setWeekBeforeInputDate] = useState(inputDate);
-  const [apodDataToday, setApodDataToday] = useState({});
+  const [choosenApodData, setChoosenApodData] = useState({});
   const [apodDatas, setApodDatas] = useState(null);
 
   useEffect(() => {
@@ -21,21 +21,21 @@ function App() {
       .then((res) => res.json())
       .then((data) => {
         console.log(inputDate, weekBeforeInputDate, data);
-        setApodDataToday(data[data.length - 1]);
+        setChoosenApodData(data[data.length - 1]);
         setApodDatas(data);
       })
       .catch((err) => console.log("Fetch error: ", err));
   }, [inputDate, weekBeforeInputDate]);
 
   return (
-    <div className="App">
-      <h1>Astronomy Picture of the Day</h1>
-      <input type="date" onChange={(e) => setInputDate(e.target.value)} />
+    <div>
+      <div className="main-container">
+        <h1>Astronomy Picture of the Day</h1>
+        <input type="date" onChange={(e) => setInputDate(e.target.value)} />
 
-      <AstronomyPictureOfTheDay apodDataToday={apodDataToday} />
-
-      <h2>Previous Pictures</h2>
-      {inputDate !== "" ? <PicturesOfPreviousDays apodDatas={apodDatas} apodDataToday={apodDataToday} /> : ""}
+        <AstronomyPictureOfTheDay choosenApodData={choosenApodData} />
+      </div>
+      <PicturesOfPreviousDays apodDatas={apodDatas} choosenApodData={choosenApodData} setChoosenApodData={setChoosenApodData} />
     </div>
   );
 }
