@@ -1,20 +1,20 @@
 import React from "react";
 
-function AstronomyPictureOfTheDay({ apodData }) {
+function AstronomyPictureOfTheDay({ apodDataToday }) {
   return (
     <div className="astronomy">
-      {apodData.media_type === "image" ? (
+      {apodDataToday && apodDataToday.media_type === "image" ? (
         <div className="image-container">
-          <img src={apodData.url} alt={apodData.title} />
+          <img src={apodDataToday.url} alt={apodDataToday.title} />
         </div>
       ) : (
-        <iframe src={apodData.url} title={apodData.title} height="60%" frameBorder="0"></iframe>
+        <iframe src={apodDataToday.url} title={apodDataToday.title} height="60%" frameBorder="0"></iframe>
       )}
 
-      <h2>{apodData.title}</h2>
-      {apodData?.copyright ? <p>Photo by: {apodData.copyright}</p> : ""}
+      <h2>{apodDataToday.title}</h2>
+      {apodDataToday?.copyright ? <p>Photo by: {apodDataToday.copyright}</p> : ""}
 
-      <article>{apodData.explanation}</article>
+      <article>{apodDataToday.explanation}</article>
     </div>
   );
 }
