@@ -6,17 +6,17 @@ import "./App.css";
 function App() {
   const key = "eScw6dlpwJ2AIBuldX1hVZD5Bl1TcnLm9GfqgRwx";
   const [inputDate, setInputDate] = useState(new Date().toISOString().slice(0, 10));
-  const [weekBeforeInputDate, setWeekBeforeInputDate] = useState(inputDate);
   const [choosenApodData, setChoosenApodData] = useState({});
   const [apodDatas, setApodDatas] = useState(null);
 
-  useEffect(() => {
+  function startDate(inputDate) {
     let transformToDate = new Date(inputDate);
     transformToDate.setDate(transformToDate.getDate() - 6);
-    setWeekBeforeInputDate(transformToDate.toISOString().slice(0, 10));
-  }, [inputDate]);
+    return transformToDate.toISOString().slice(0, 10);
+  }
 
   useEffect(() => {
+    let weekBeforeInputDate = startDate(inputDate);
     fetch(`https://api.nasa.gov/planetary/apod?api_key=${key}&start_date=${weekBeforeInputDate}&end_date=${inputDate}`)
       .then((res) => res.json())
       .then((data) => {
@@ -25,7 +25,7 @@ function App() {
         setApodDatas(data);
       })
       .catch((err) => console.log("Fetch error: ", err));
-  }, [inputDate, weekBeforeInputDate]);
+  }, [inputDate]);
 
   return (
     <div>
