@@ -74,18 +74,19 @@ iframe {
   clip-path: ellipse(50% 45% at 50% 50%);
 }
 
-.flexed-picture-container {
+.gallery {
   display: flex;
   flex-wrap: wrap;
-  margin: 1rem;
-  gap: 1rem;
+  justify-content: center;
 }
 
-.flexed-picture-container img {
+.gallery img {
   width: 30%;
   height: 30%;
   border: 0.2rem solid white;
   border-radius: 5px;
+  margin: 1%;
+  align-self: center;
 }
 
 @media (max-width: 820px) {
@@ -137,6 +138,10 @@ iframe {
     width: 19.6rem;
     height: 19.6rem;
   }
+  .gallery img {
+    width: 40%;
+    height: 40%;
+  }
 }
 
 @media (max-width: 414px) {
@@ -166,5 +171,11 @@ iframe {
   .image-container img {
     width: 16.6rem;
     height: 16.6rem;
+  }
+
+  .gallery img {
+    width: 85%;
+    height: 85%;
+    margin: 2% auto;
   }
 }

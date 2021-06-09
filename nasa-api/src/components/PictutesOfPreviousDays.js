@@ -4,7 +4,7 @@ function PicturesOfPreviousDays({ apodDatas, choosenApodData, setChoosenApodData
   return (
     <div className="main-container">
       <h2>Previous Days</h2>
-      <div className="flexed-picture-container">
+      <div className="gallery">
         {apodDatas &&
           apodDatas
             .filter((data) => data.url !== choosenApodData.url)
